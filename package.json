@@ -1,0 +1,17 @@
+{
+  "name": "midwareproject",
+  "version": "1.0.0",
+  "description": "testes de midwares",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "keywords": [
+    "teste"
+  ],
+  "author": "Wagner dos Santos",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.4"
+  }
+}
