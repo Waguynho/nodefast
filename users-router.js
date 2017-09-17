@@ -5,14 +5,12 @@ var router = express.Router()
 
 var midwares = require('./midwares')
 
-router.use(midwares.timeLog)
-
-router.get('/users', function (req, res) {
+router.get('/users', [midwares.verifyToken],  function (req, res) {//rota protegida
 
     res.send(req.query)
 })
 
-router.get('/users/:userId/books/:bookId', function (req, res) {
+router.get('/users/:userId/books/:bookId', [midwares.verifyToken],  function (req, res) {//rota protegida
 
     res.send(req.params)
 })

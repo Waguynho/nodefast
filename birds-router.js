@@ -5,7 +5,7 @@ var router = express.Router()
 
 var midwares = require('./midwares')
 
-router.use(midwares.timeLog)
+router.use(midwares.timeLog) //aciono este midware para todas as rotas de birds
 
 router.get('/', function (req, res) {
   res.send('Birds home page')

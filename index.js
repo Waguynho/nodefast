@@ -23,14 +23,6 @@ app.get('/', function (req, res) {
     res.send('Hello World!')
 })
 
-app.get('/erro', function (req, res) {
-    
-    console.error('Erro proposital');
-
-    throw new Error('Meu erro prosital');
-
-})
-
 app.use(function (err, req, res, next) {
     
     res.status(500).send('algo quebrou na aplicação: '+err.message)
