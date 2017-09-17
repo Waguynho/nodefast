@@ -1,8 +1,9 @@
+'use strict'
+
 const express = require('express')
 const app = express()
 
 var birds = require('./birds-router')
-
 var users = require('./users-router')
 
 app.use('/birds', birds)//Posso definir o recurso aqui ou no arquivo originador
