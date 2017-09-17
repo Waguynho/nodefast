@@ -2,13 +2,21 @@
 
 const express = require('express')
 const app = express()
+const bodyParser = require('body-parser')
 
 var birds = require('./birds-router')
 var users = require('./users-router')
+var auth = require('./autenticate-router')
+
+app.use(bodyParser.urlencoded({ extended: false }))
+
+app.use(bodyParser.json())
 
 app.use('/birds', birds)//Posso definir o recurso aqui ou no arquivo originador
 
 app.use(users);
+
+app.use(auth);
 
 app.get('/', function (req, res) {
     console.log('=== Bem vindo!');
