@@ -1,9 +1,10 @@
 'use strict'
 
-var express = require('express')
-var router = express.Router()
+const express = require('express')
+const router = express.Router()
 
-var midwares = require('./midwares')
+const midwares = require('./midwares')
+const hash = require('./hash')
 
 router.use('birds',midwares.timeLog) //aciono este midware para todas as rotas de birds
 
@@ -19,5 +20,12 @@ router.get('/erro/proposital', function (req, res) {
 
   throw new Error('Erro prosital Birds!');
 })
+
+router.get('/hash', function (req, res) {
+  
+    let resume = hash.createHash(req.query.senha);
+
+    res.status(200).json({senhaCriptografada: resume});
+  })
 
 module.exports = router
