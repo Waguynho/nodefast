@@ -4,7 +4,7 @@ var express = require('express')
 var router = express.Router()
 var jwt = require('jsonwebtoken')
 
-var config = require('./config.json')
+var config = require('./helps/config.json')
 
 router.post('/authenticate', function (req, res) {
     console.log(req.body);
