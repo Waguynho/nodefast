@@ -3,16 +3,17 @@
   "version": "1.0.0",
   "description": "testes de midwares",
   "main": "index.js",
-  "scripts": {
-    "start": "nodemon index.js"
-  },
   "keywords": [
-    "teste"
+    "nodefast"
   ],
+  "scripts": {
+    "start": "node index.js"
+  },
   "author": "Wagner dos Santos",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.1",
+    "cors": "^2.8.4",
     "express": "^4.15.4",
     "jsonwebtoken": "^8.0.1"
   }

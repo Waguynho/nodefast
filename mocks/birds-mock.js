@@ -1,6 +1,6 @@
 let birds = [];
 
-for (var i = 0; i < 10; i++) {
+for (var i = 0; i < 100; i++) {
        birds[i] = 'Pássaro '+ (i + 1);    
 }
 
