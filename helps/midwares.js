@@ -19,7 +19,6 @@ var verifyToken = function (req, res, next) {
     jwt.verify(token, config.segredo, function (err, decoded) {
 
         if (err) {
-
             throw new Error(err);
         }       
     });
