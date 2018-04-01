@@ -29,7 +29,8 @@ app.use(function(req, res, next) {
 
 app.get('/', function (req, res) {
     console.log('=== Bem vindo!');
-    res.send('Hello World!')
+    console.log( process.env.TESTEA);
+    res.send('Hello World!'+process.env.TESTEA);
 })
 
 app.use(function (err, req, res, next) {

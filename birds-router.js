@@ -23,7 +23,7 @@ router.get('/', function (req, res) {
     res.status(200).json({data:passaros, size: passaros.length});
   }
 })
-// define the about route
+
 router.get('/about', [midwares.verifyToken], function (req, res) {
   res.send('About birds')
 })
