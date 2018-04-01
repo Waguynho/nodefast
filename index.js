@@ -5,9 +5,9 @@ const app = express()
 const bodyParser = require('body-parser')
 const cors = require('cors')
 
-var birds = require('./birds-router')
-var users = require('./users-router')
-var auth = require('./autenticate-router')
+let birds = require('./birds-router')
+let users = require('./users-router')
+let auth = require('./autenticate-router')
 
 app.use(cors())
 
