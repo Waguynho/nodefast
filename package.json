@@ -1,7 +1,7 @@
 {
-  "name": "midwareproject",
+  "name": "midlewareproject",
   "version": "1.0.0",
-  "description": "testes de midwares",
+  "description": "tests with midwares",
   "main": "index.js",
   "keywords": [
     "nodefast"
@@ -15,6 +15,6 @@
     "body-parser": "^1.18.1",
     "cors": "^2.8.4",
     "express": "^4.15.4",
-    "jsonwebtoken": "^8.0.1"
+    "jsonwebtoken": "^9.0.0"
   }
 }
