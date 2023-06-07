@@ -11,16 +11,16 @@ const birds = require('./mocks/birds-mock');
 router.use('/birds', midwares.timeLog) ;//active this midware for all birds route
 
 router.get('/birds', function (req, res) {
-  res.status(200);
-  let birds = birds.getAllBirds();
+  
+  let items = birds.getAllBirds();
 
   if (req.query.startPage && req.query.sizePage) {
 
-    let pagination = utils.getByPage(birds, req.query.startPage, req.query.sizePage);
+    let pagination = utils.getByPage(items, req.query.startPage, req.query.sizePage);
 
-    res.status(200).json({data:pagination, size: birds.length});
+    res.status(200).json({data:pagination, size: items.length});
   } else {
-    res.status(200).json({data:birds, size: birds.length});
+    res.status(200).json({data:items, size: items.length});
   }
 })
 
