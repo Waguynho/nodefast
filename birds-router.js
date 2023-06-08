@@ -1,26 +1,26 @@
 'use strict'
 
-const express = require('express')
-const router = express.Router()
+const express = require('express');
+const router = express.Router();
 
-const midwares = require('./helps/midwares')
-const hash = require('./helps/hash')
-const utils = require('./helps/utils')
-const birds = require('./mocks/birds-mock')
+const midwares = require('./helps/midwares');
+const hash = require('./helps/hash');
+const utils = require('./helps/utils');
+const birds = require('./mocks/birds-mock');
 
-router.use('birds', midwares.timeLog) //aciono este midware para todas as rotas de birds
+router.use('/birds', midwares.timeLog) ;//active this midware for all birds route
 
-router.get('/', function (req, res) {
-
-  let passaros = birds.getAllBirds();
+router.get('/birds', function (req, res) {
+  
+  let items = birds.getAllBirds();
 
   if (req.query.startPage && req.query.sizePage) {
 
-    let paginacao = utils.getByPage(passaros, req.query.startPage, req.query.sizePage);
+    let pagination = utils.getByPage(items, req.query.startPage, req.query.sizePage);
 
-    res.status(200).json({data:paginacao, size: passaros.length});
+    res.status(200).json({data:pagination, size: items.length});
   } else {
-    res.status(200).json({data:passaros, size: passaros.length});
+    res.status(200).json({data:items, size: items.length});
   }
 })
 

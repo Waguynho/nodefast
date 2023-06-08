@@ -9,13 +9,13 @@ let birds = require('./birds-router')
 let users = require('./users-router')
 let auth = require('./autenticate-router')
 
-app.use(cors())
+app.use(cors());
 
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use(bodyParser.json())
+app.use(bodyParser.json());
 
-app.use('/birds', birds)//Posso definir o recurso aqui ou no arquivo originador
+app.use(birds);
 
 app.use(users);
 
@@ -28,23 +28,23 @@ app.use(function(req, res, next) {
 });
 
 app.get('/', function (req, res) {
-    console.log('=== Bem vindo!');
-    console.log( process.env.TESTEA);
-    res.send('Hello World!'+process.env.TESTEA);
+    console.log('=== welcome!');
+    res.send('Hello World!');
 })
 
 app.use(function (err, req, res, next) {
-    
-    res.status(500).send('algo quebrou na aplicação: '+err.message)
+    console.log('=== error'+err.message);
+    res.status(500).send('something broken: '+err.message)
 })
 
 app.use(function (req, res, next) {
     
-    res.status(404).send("Sorry can't find that!")
+    res.status(404).send("Sorry can't find that!");
 })
 
 const port = process.env.PORT || 4000;
 
 app.listen(port, function () {
-    console.log('Aplicação está rodando na porta: '+port)
+    const msg = 'Aplication on port:'+ port+' and process: '+process.env.PORT;
+    console.log(msg);
 })
