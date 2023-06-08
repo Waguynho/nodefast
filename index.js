@@ -8,6 +8,7 @@ const cors = require('cors')
 let birds = require('./birds-router')
 let users = require('./users-router')
 let auth = require('./autenticate-router')
+let dynamic = require('./dynamic-router')
 
 app.use(cors());
 
@@ -20,6 +21,8 @@ app.use(birds);
 app.use(users);
 
 app.use(auth);
+
+app.use(dynamic);
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -45,6 +48,6 @@ app.use(function (req, res, next) {
 const port = process.env.PORT || 4000;
 
 app.listen(port, function () {
-    const msg = 'Aplication on port:'+ port+' and process: '+process.env.PORT;
+    const msg = `Aplication on port:'+ ${port} ' and user: ${process.env.USERNAME} logged in machine.`;
     console.log(msg);
 })
