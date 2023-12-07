@@ -45,9 +45,8 @@ app.use(function (req, res, next) {
     res.status(404).send("Sorry can't find that!");
 })
 
-const port = process.env.PORT || 4000;
-
-app.listen(port, function () {
-    const msg = `Aplication on port:'+ ${port} ' and user: ${process.env.USERNAME} logged in machine.`;
+let server = app.listen(0, function () {
+    var address = server.address();
+    const msg = `Aplication on port:'+ ${address.port} ' and data: ${JSON.stringify(address)} logged in machine.`;
     console.log(msg);
 })
