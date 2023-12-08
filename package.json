@@ -2,7 +2,6 @@
   "name": "midlewareproject",
   "version": "1.0.0",
   "description": "tests with midwares",
-  "main": "index.js",
   "keywords": [
     "nodefast"
   ],
