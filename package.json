@@ -6,7 +6,7 @@
     "nodefast"
   ],
   "scripts": {
-    "start": "node index.js"
+    "start": "node ./bin/www"
   },
   "author": "Wagner dos Santos",
   "license": "ISC",

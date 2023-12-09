@@ -45,7 +45,7 @@ app.use(function (req, res, next) {
     res.status(404).send("Sorry can't find that!");
 })
 
-let server = app.listen(0, function () {
+let server = app.listen(80, function () {
     var address = server.address();
     const msg = `Aplication on port:'+ ${address.port} ' and data: ${JSON.stringify(address)} logged in machine.`;
     console.log(msg);
