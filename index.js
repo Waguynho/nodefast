@@ -42,6 +42,8 @@ app.use(function (req, res, next) {
     res.status(404).send("Sorry can't find that!");
 })
 
+console.log(`Hello ${process.env.HELLO}`)
+
 const port = process.env.PORT || 4000;
 
 app.listen(port, function () {

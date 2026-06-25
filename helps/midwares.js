@@ -2,7 +2,6 @@
 
 var express = require('express')
 var jwt = require('jsonwebtoken')
-var config = require('./config.json')
 
 var router = express.Router()
 
@@ -16,7 +15,7 @@ var verifyToken = function (req, res, next) {
 
     let token = req.query.token || req.body.token || req.headers.token
 
-    jwt.verify(token, config.segredo, function (err, decoded) {
+    jwt.verify(token, process.env.SECREET_KEY, function (err, decoded) {
 
         if (err) {
             throw new Error(err);

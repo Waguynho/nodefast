@@ -1,5 +1,6 @@
 'use strict'
 
+require('dotenv').config(); // Must be first
 const express = require('express');
 const router = express.Router();
 
