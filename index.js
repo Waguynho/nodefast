@@ -2,26 +2,29 @@
 
 const express = require('express')
 const app = express()
-const bodyParser = require('body-parser')
+
 const cors = require('cors')
+app.use(cors());
+const bodyParser = require('body-parser')
 
 let birds = require('./birds-router')
 let users = require('./users-router')
 let auth = require('./autenticate-router')
 
-app.use(cors());
+
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(bodyParser.json());
 
+app.use(auth);
+
 app.use(birds);
 
 app.use(users);
 
-app.use(auth);
-
 app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
@@ -44,9 +47,11 @@ app.use(function (req, res, next) {
 
 console.log(`Hello ${process.env.HELLO}`)
 
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 3000;
 
 app.listen(port, function () {
     const msg = 'Aplication on port:'+ port+' and process: '+process.env.PORT;
     console.log(msg);
 })
+
+app.use(express.json());

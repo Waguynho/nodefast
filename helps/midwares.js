@@ -6,12 +6,12 @@ var jwt = require('jsonwebtoken')
 var router = express.Router()
 
 var timeLog = function (req, res, next) {
-    console.log('Tempo: ', Date.now())
+    console.log('Time: ', Date.now())
     next()
 }
 
 var verifyToken = function (req, res, next) {
-    console.log('verificando token...')
+    console.log('verifying token...')
 
     let token = req.query.token || req.body.token || req.headers.token
 

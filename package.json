@@ -4,15 +4,17 @@
   "description": "tests with midwares",
   "main": "index.js",
   "keywords": [
-    "nodefast"
+    "nodefast",
+    "birds"
   ],
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "npm": "debug"
   },
   "author": "Wagner dos Santos",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.18.1",
+    "body-parser": "^1.20.5",
     "cors": "^2.8.4",
     "dotenv": "^17.4.2",
     "express": "^4.15.4",

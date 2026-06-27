@@ -7,12 +7,12 @@ var midwares = require('./helps/midwares')
 
 router.use('/users' , midwares.verifyToken )
 
-router.get('/users',  function (req, res) {//rota protegida
+router.get('/users',  function (req, res) {//protected route
 
     res.send(req.query)
 })
 
-router.get('/users/:userId/books/:bookId',  function (req, res) {//rota protegida
+router.get('/users/:userId/books/:bookId',  function (req, res) {//protected route
 
     res.send(req.params)
 })

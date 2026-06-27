@@ -4,33 +4,36 @@ var express = require('express')
 var router = express.Router()
 var jwt = require('jsonwebtoken')
 
-var SECREET_KEY = process.env.SECREET_KEY 
-router.post('/authenticate', function (req, res) {
-    console.log(req.body);
-    if (req.body.login != 'ws' || req.body.senha != 123) {
+var SECREET_KEY = process.env.SECREET_KEY
 
-        throw new Error('Senha ou usuário incorretos!');
+router.post('/authenticate', function (req, res) {
+
+    console.log(req.body);
+    
+    console.log('=== login: '+req.body.login);
+    console.log('=== password: '+req.body.password);
+    if (req.body.login != 'ws' || req.body.password != 123) {
+        return res.status(401).json({ mensagem: 'password or incorrect login' });
     }
 
     var token = jwt.sign({ nome: 'Wagner Santos' }, SECREET_KEY, {
-        expiresIn: '15M'
+        expiresIn: '25M'
     });
 
-    res.json({ mensagem: 'Bem vindo', token: token }).status(200);
+    return res.status(200).json({ mensagem: 'Welcome', token: token });
 })
 
 router.get('/authenticate', function (req, res) {
 
     jwt.verify(req.query.token, SECREET_KEY, function (err, decoded) {
 
-        if (err){
+        if (err) {
+            return res.status(401).json({ mensagem: err.message });
+        }
 
-            throw new Error(err);
-        }        
-        
-        res.send(decoded)
+        return res.status(200).json(decoded);
     });
-   
+
 })
 
 module.exports = router;
