@@ -2,20 +2,14 @@
 
 const express = require('express')
 const app = express()
-
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 const cors = require('cors')
 app.use(cors());
-const bodyParser = require('body-parser')
 
 let birds = require('./birds-router')
 let users = require('./users-router')
 let auth = require('./autenticate-router')
-
-
-
-app.use(bodyParser.urlencoded({ extended: false }));
-
-app.use(bodyParser.json());
 
 app.use(auth);
 
@@ -47,11 +41,9 @@ app.use(function (req, res, next) {
 
 console.log(`Hello ${process.env.HELLO}`)
 
-const port = process.env.PORT || {port: 3000};
+const port = process.env.PORT || 3000;
 
 app.listen(port, function () {
     const msg = 'Aplication on port:'+ port+' and process: '+process.env.PORT;
     console.log(msg);
 })
-
-app.use(express.json());
