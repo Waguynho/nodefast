@@ -25,7 +25,7 @@ router.get('/birds', function (req, res) {
   }
 })
 
-router.post('/hash', function (req, res) {
+router.post('/birds', function (req, res) {
 
   let resume = hash.createHash(req.body.PASSWORD);
 
