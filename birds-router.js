@@ -25,6 +25,15 @@ router.get('/birds', function (req, res) {
   }
 })
 
+router.post('/hash', function (req, res) {
+
+  let resume = hash.createHash(req.body.PASSWORD);
+
+  birds.getAllBirds().push('Bird fly '+ (birds.getAllBirds().length + 1));
+
+  res.status(201)
+})
+
 router.get('/about', [midwares.verifyToken], function (req, res) {
   res.send('About birds')
 })
@@ -38,7 +47,9 @@ router.get('/hash', function (req, res) {
 
   let resume = hash.createHash(req.query.senha);
 
-  res.status(200).json({ senhaCriptografada: resume });
+  res.status(200).json({ 
 })
+
+
 
 module.exports = router

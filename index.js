@@ -47,7 +47,7 @@ app.use(function (req, res, next) {
 
 console.log(`Hello ${process.env.HELLO}`)
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || {port: 3000};
 
 app.listen(port, function () {
     const msg = 'Aplication on port:'+ port+' and process: '+process.env.PORT;
