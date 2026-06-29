@@ -47,9 +47,6 @@ router.get('/hash', function (req, res) {
 
   let resume = hash.createHash(req.query.senha);
 
-  res.status(200).json({ 
+  res.status(200).json({ hash: resume });
 })
-
-
-
-module.exports = router
+module.exports = router;
