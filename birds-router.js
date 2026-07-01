@@ -26,13 +26,14 @@ router.get('/birds', function (req, res) {
 })
 
 router.post('/birds', function (req, res) {
+  
 
-  let resume = hash.createHash(req.body.PASSWORD);
-
-  birds.getAllBirds().push('Bird fly '+ (birds.getAllBirds().length + 1));
+  let lastBird = 'Bird fly '+ (birds.getAllBirds().length + 1);
+  birds.getAllBirds().push(lastBird);
 
   res.status(201).json({
-      "message": 'Bird created with success!'
+    "lastBird" : lastBird,
+    "message": 'Bird created with success!'
   });
 });
 

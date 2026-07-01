@@ -1,18 +1,16 @@
 const crypto = require('crypto');
 
-
-function  createHash(data){
-
+function createHash(data) {
+    const normalizedData = data == null ? '' : String(data);
     const hash = crypto.createHash('sha512');
 
-    hash.update(data);
+    hash.update(normalizedData);
 
-    let resume = hash.digest('hex');
+    const resume = hash.digest('hex');
 
     console.log(resume);
 
     return resume;
-
 }
 
 module.exports = {
