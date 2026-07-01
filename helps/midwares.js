@@ -14,8 +14,13 @@ var verifyToken = function (req, res, next) {
     console.log('verifying token...')
 
     let token = req.query.token || req.body.token || req.headers.token
+    let secret = process.env.SECREET_KEY
+    
+    if (!secret) {
+        throw new Error('Missing JWT secret: set SECREET_KEY in environment or .env')
+    }
 
-    jwt.verify(token, process.env.SECREET_KEY, function (err, decoded) {
+    jwt.verify(token, secret, function (err, decoded) {
 
         if (err) {
             throw new Error(err);

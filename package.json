@@ -8,8 +8,7 @@
     "birds"
   ],
   "scripts": {
-    "start": "node index.js",
-    "npm": "debug"
+    "start": "node index.js"
   },
   "author": "Wagner dos Santos",
   "license": "ISC",

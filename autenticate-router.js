@@ -5,6 +5,9 @@ var router = express.Router()
 var jwt = require('jsonwebtoken')
 
 var SECREET_KEY = process.env.SECREET_KEY
+if (!SECREET_KEY) {
+    throw new Error('Missing JWT secret: set SECREET_KEY in environment or .env')
+}
 
 router.post('/authenticate', function (req, res) {
 

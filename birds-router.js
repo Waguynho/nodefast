@@ -1,4 +1,4 @@
-'use strict'
+
 
 require('dotenv').config(); // Must be first
 const express = require('express');
@@ -34,9 +34,7 @@ router.post('/birds', function (req, res) {
   res.status(201).json({
       "message": 'Bird created with success!'
   });
-    
- 
-
+});
 
 router.get('/about', [midwares.verifyToken], function (req, res) {
   res.send('About birds');
