@@ -7,9 +7,9 @@ app.use(express.urlencoded({ extended: true }));
 const cors = require('cors')
 app.use(cors());
 
-let birds = require('./birds-router')
-let users = require('./users-router')
-let auth = require('./autenticate-router')
+let birds = require('./birds-router');
+let users = require('./users-router');
+let auth = require('./autenticate-router');
 
 app.use(auth);
 
@@ -46,4 +46,4 @@ const port = process.env.PORT || 3000;
 app.listen(port, function () {
     const msg = 'Aplication on port:'+ port+' and process: '+process.env.PORT;
     console.log(msg);
-})
+});
