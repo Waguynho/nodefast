@@ -31,22 +31,27 @@ router.post('/birds', function (req, res) {
 
   birds.getAllBirds().push('Bird fly '+ (birds.getAllBirds().length + 1));
 
-  res.status(201)
-})
+  res.status(201).json({
+      "message": 'Bird created with success!'
+  });
+    
+ 
+
 
 router.get('/about', [midwares.verifyToken], function (req, res) {
-  res.send('About birds')
-})
+  res.send('About birds');
+});
 
 router.get('/erro/proposital', function (req, res) {
 
   throw new Error('Erro prosital Birds!');
-})
+});
 
 router.get('/hash', function (req, res) {
 
   let resume = hash.createHash(req.query.senha);
 
   res.status(200).json({ hash: resume });
-})
+});
+
 module.exports = router;
